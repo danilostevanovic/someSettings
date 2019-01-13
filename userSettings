@@ -8,5 +8,6 @@
     "javascript.updateImportsOnFileMove.enabled": "always",
     "workbench.sideBar.location": "left",
     "zenMode.centerLayout": false,
-    "zenMode.hideTabs": false
+    "zenMode.hideTabs": false,
+    "editor.fontSize": 16
 }
