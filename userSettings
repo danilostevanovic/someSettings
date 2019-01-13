@@ -1,0 +1,10 @@
+{
+    "vsicons.dontShowNewVersionMessage": true,
+    "workbench.iconTheme": "vscode-icons",
+    "window.zoomLevel": 0,
+    "files.associations": {
+        "*.js":"javascriptreact"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "workbench.sideBar.location": "left"
+}
