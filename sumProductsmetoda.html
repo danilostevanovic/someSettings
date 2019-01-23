@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const products = [
+            { productId: 1, currency: { currencyId: 2 }, prices: [{ priority: 1, value: 200 }, { priority: 2, value: 300 }, { priority: 3, value: 200 }] },
+            { productId: 2, currency: { currencyId: 1 }, prices: [{ priority: 1, value: 400 }, { priority: 2, value: 500 }, { priority: 3, value: 600 }] },
+            { productId: 3, currency: { currencyId: 1 }, prices: [{ priority: 1, value: 700 }, { priority: 2, value: 800 }, { priority: 3, value: 900 }] },
+            { productId: 4, currency: { currencyId: 2 }, prices: [{ priority: 1, value: 1000 }, { priority: 2, value: 3000 }, { priority: 3, value: 4000 }] },
+        ];
+
+        function getTotalPrice(products) {
+            const pricesWithCurrentCurrency = products.filter(products => products.currency.currencyId === 2)
+            const pricesPriority = pricesWithCurrentCurrency.reduce((acc, product) => {
+                const { prices } = product;
+                const priorities = prices.map((price, index) => price.priority);
+                acc.push(priorities);
+                return acc
+            }, [])
+            const totalPrice = pricesWithCurrentCurrency.map((product, index) => {
+                const priority = Math.max(...pricesPriority[index]);
+                const { prices } = product;
+                return prices.filter(price => {
+                   return  price.priority === priority
+                })
+            }).reduce((acc,prev)=>{
+                prev.map(prev=>acc.push(prev.value))
+                return acc
+            },[]).reduce((acc,price)=>{
+                const sum = acc + price;
+                return sum
+            },0)
+
+            return totalPrice
+
+        }
+        console.log('test', getTotalPrice(products))
+    </script>
+</body>
+
+</html>
