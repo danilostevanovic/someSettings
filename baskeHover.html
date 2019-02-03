@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .b{
+            width: 100px;
+            height: 100px;
+            background: red;
+            color: white;
+            visibility: hidden;
+            position: absolute;
+            top: 0;
+            opacity: 0;
+        }
+        .a{
+            position: relative;
+            width: 100px;
+            height: 100px;
+            background: green;
+            color: white;
+        }
+        .a:hover .b{
+            visibility: visible;
+            opacity: 1;
+            top: 100px;
+            transition: all 1s ease;
+        }
+        .a:not(:hover) .b{
+            opacity: 0;
+            transition: all 1s ease;
+        }
+    </style>
+</head>
+<body>
+      <div class="a">
+          A
+          <div class="b">B</div>
+      </div>
+       
+</body>
+</html>
