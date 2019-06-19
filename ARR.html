@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       const arr1 = [{id:1,type:'open'},{id:2,type:'nodata'},{id:3,type:'open'}];
+       const arr2 = [{id:1,type:'nodata'},{id:2,type:'closed'}];
+
+       const updateArr = arr1.map(arr1=>{
+           arr2.map(arr2=>{
+               if(arr1.id === arr2.id){
+                   arr1.type = arr2.type
+               }
+           })
+           return arr1
+       })
+       console.log('updateArr',updateArr);
+       
+    </script>
+</body>
+</html>
